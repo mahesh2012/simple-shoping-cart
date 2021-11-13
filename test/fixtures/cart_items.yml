@@ -1,0 +1,13 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  cart: one
+  quantity: MyString
+  producty: one
+  order: one
+
+two:
+  cart: two
+  quantity: MyString
+  producty: two
+  order: two
