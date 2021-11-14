@@ -1,4 +1,5 @@
 class Order < ApplicationRecord
-  belongs_to :user
-  has_many :cart_items, dependent: :destroy
+  belongs_to :cart
+
+  enum pay_method: ["COD", "Online Payment", "Card", "UPI"]
 end

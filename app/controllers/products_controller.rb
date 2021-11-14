@@ -1,11 +1,12 @@
 class ProductsController < ApplicationController
+  skip_before_action :authenticate_request  , only: [:index]
   before_action :set_product, only: [:show, :update, :destroy]
 
   # GET /products
   def index
     @products = Product.all
 
-    render json: @products
+    render json: @products.as_json
   end
 
   # GET /products/1

@@ -15,7 +15,9 @@ class CartItemsController < ApplicationController
 
   # POST /cart_items
   def create
+    cart = Cart.find_by({ id: params[:cart_id]}) || Cart.create()
     @cart_item = CartItem.new(cart_item_params)
+    @cart_item.cart_id = cart.id
 
     if @cart_item.save
       render json: @cart_item, status: :created, location: @cart_item
@@ -46,6 +48,6 @@ class CartItemsController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def cart_item_params
-      params.require(:cart_item).permit(:cart_id, :quantity, :producty_id, :order_id)
+      params.require(:cart_item).permit(:quantity, :product_id, :cart_id)
     end
 end
