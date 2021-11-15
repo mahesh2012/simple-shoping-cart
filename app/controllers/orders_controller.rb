@@ -10,7 +10,8 @@ class OrdersController < ApplicationController
 
   # GET /orders/1
   def show
-    render json: @order
+    order_summary = @order.order_summary
+    render json: @order.as_json.merge({order_summary: order_summary})
   end
 
   # POST /orders

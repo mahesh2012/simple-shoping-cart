@@ -34,9 +34,9 @@ response: {
 }
 ```
 
+# List All Products
 * https://simple-shoping-cart.herokuapp.com/products
   Method: GET
-  To list all products
 
 
 # Add Product to a Cart
@@ -63,3 +63,11 @@ body: {
   "cart_id": 1
 }
 ```
+
+# Order List
+* https://simple-shoping-cart.herokuapp.com/orders
+Method: POST
+
+# Signle Order Details
+* https://simple-shoping-cart.herokuapp.com/orders/:id
+Method: POST
