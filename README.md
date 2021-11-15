@@ -1,24 +1,65 @@
 #Sample Shoping cart api only
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+# API's
 
-Things you may want to cover:
+# TO Create User
+ use it in rails console
+* http://localhost:3000/users
+```
+User.create({
+  "name": "Mahesh",
+  "email": "jmaheshkumar2@gmail.com",
+  "phone": nil,
+  "address": nil,
+  "is_admin": true,
+  "password": "Mahesh@123",
+  "password_confirmation": "Mahesh@123"
+})
+```
 
-* Ruby version
+# TO Login User(Authenticate)
+** Here we get a cart id along with the auth_token, So We need to pass this Cart_id to create order and add cart items api's
+request
+Url: http://localhost:3000/authenticate
+method: POST
+```
+body: {
+  "email":"jmaheshkumar2@gmail.com",
+  "password":"Mahesh@123"
+}
 
-* System dependencies
+response: {
+  "auth_token":"eyJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoxLCJleHAiOjE2MzcwNzMxNjR9.3rPeMw8cjotpza86g9zG5oQcvSst8H5W_tZoMGQWFjg",
+  "cart_id":1
+}
+```
 
-* Configuration
+* http://localhost:3000/products
+  Method: GET
+  To list all products
 
-* Database creation
 
-* Database initialization
+# Add Product to a Cart
+* http://localhost:3000/cart_items
+ Method: POST
+ ```
+  body: {
+    "quantity" : 10,
+    "product_id" : 1,
+    "cart_id": 1
+  }
+```
 
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+# Place an order cart with cart items
+* http://localhost:3000/orders
+Method: POST
+```
+body: {
+	"cart_id": 1,
+    "email": "jmaheshkumar2@gmail.com",
+    "address": "Coimbatore",
+    "phone": "9500526821",
+    "pay_method": 0,
+    "cart_id": 1
+}
+```

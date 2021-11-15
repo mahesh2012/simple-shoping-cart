@@ -3,7 +3,8 @@ class AuthenticationController < ApplicationController
   def authenticate
     command = AuthenticateUser.call(params[:email], params[:password])
     if command.success?
-      render json: { auth_token: command.result }
+      cart = Cart.create()
+      render json: { auth_token: command.result, cart_id: cart.id }
     else
       render json: { error: command.errors }, status: :unauthorized
     end
