@@ -4,7 +4,7 @@
 
 # TO Create User
  use it in rails console
-* http://localhost:3000/users
+* https://simple-shoping-cart.herokuapp.com/users
 ```
 User.create({
   "name": "Mahesh",
@@ -20,7 +20,7 @@ User.create({
 # TO Login User(Authenticate)
 ** Here we get a cart id along with the auth_token, So We need to pass this Cart_id to create order and add cart items api's
 request
-Url: http://localhost:3000/authenticate
+Url: https://simple-shoping-cart.herokuapp.com/authenticate
 method: POST
 ```
 body: {
@@ -34,13 +34,13 @@ response: {
 }
 ```
 
-* http://localhost:3000/products
+* https://simple-shoping-cart.herokuapp.com/products
   Method: GET
   To list all products
 
 
 # Add Product to a Cart
-* http://localhost:3000/cart_items
+* https://simple-shoping-cart.herokuapp.com/cart_items
  Method: POST
  ```
   body: {
@@ -51,15 +51,15 @@ response: {
 ```
 
 # Place an order cart with cart items
-* http://localhost:3000/orders
+* https://simple-shoping-cart.herokuapp.com/orders
 Method: POST
 ```
 body: {
 	"cart_id": 1,
-    "email": "jmaheshkumar2@gmail.com",
-    "address": "Coimbatore",
-    "phone": "9500526821",
-    "pay_method": 0,
-    "cart_id": 1
+  "email": "jmaheshkumar2@gmail.com",
+  "address": "Coimbatore",
+  "phone": "9500526821",
+  "pay_method": 0,
+  "cart_id": 1
 }
 ```
